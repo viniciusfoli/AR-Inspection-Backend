@@ -1,4 +1,4 @@
 ﻿namespace ARinspection.Models
 {
-    public record PecaRequest(string nome);
+    public record PecaRequest(Guid? id, string nome, double temperatura);
 }

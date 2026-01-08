@@ -1,0 +1,15 @@
+name: teste_isar_offshore
+description: Teste de banco de dados Isar para PRH22.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  isar: ^3.1.0           # O banco de dados em si
+  isar_flutter_libs: ^3.1.0 # Binários necessários para rodar
+
+dev_dependencies:
+  isar_generator: ^3.1.0 # Gerador de código (o "Migration" do Isar)
+  build_runner: any      # Ferramenta que executa o gerador
