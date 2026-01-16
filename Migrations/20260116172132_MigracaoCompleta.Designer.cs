@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ARinspection.Migrations
 {
     [DbContext(typeof(PecaContext))]
-    [Migration("20260107223615_AddTemperatura")]
-    partial class AddTemperatura
+    [Migration("20260116172132_MigracaoCompleta")]
+    partial class MigracaoCompleta
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,11 +26,21 @@ namespace ARinspection.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("HistoricoJson")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Instrucao")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<double>("Temperatura")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("Vibracao")
                         .HasColumnType("REAL");
 
                     b.HasKey("Id");
