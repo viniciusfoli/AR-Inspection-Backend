@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ARinspection.Migrations
 {
     /// <inheritdoc />
-    public partial class Initial : Migration
+    public partial class MigracaoCompleta : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -16,7 +16,11 @@ namespace ARinspection.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    Nome = table.Column<string>(type: "TEXT", nullable: false)
+                    Nome = table.Column<string>(type: "TEXT", nullable: false),
+                    Temperatura = table.Column<double>(type: "REAL", nullable: false),
+                    Vibracao = table.Column<double>(type: "REAL", nullable: false),
+                    Instrucao = table.Column<string>(type: "TEXT", nullable: true),
+                    HistoricoJson = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {

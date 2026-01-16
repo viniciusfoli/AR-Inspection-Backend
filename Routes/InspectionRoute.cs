@@ -11,9 +11,10 @@ public static class InspectionRoute
         route.MapPost("", 
             async (PecaRequest req, PecaContext context) =>
         {
-            var peca = new PecaModel(req.nome);
+            var peca = new PecaModel(req.nome, req.temperatura, req.vibracao, req.instrucao, req.historicoJson, req.id);
             await context.AddAsync(peca);
             await context.SaveChangesAsync();
+            return Results.Created($"/AR/{peca.Id}", peca);
         });
         route.MapGet("", async (PecaContext context) =>
         {
@@ -29,7 +30,7 @@ public static class InspectionRoute
                     return Results.NotFound();
                 
 
-                peca.changeName(req.nome);
+                peca.changeName(req.nome, req.temperatura, req.vibracao, req.instrucao, req.historicoJson);
                 await context.SaveChangesAsync();
 
                 return Results.Ok(peca);

@@ -23,9 +23,22 @@ namespace ARinspection.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("HistoricoJson")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Instrucao")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("TEXT");
+
+                    b.Property<double>("Temperatura")
+                        .HasColumnType("REAL");
+
+                    b.Property<double>("Vibracao")
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
